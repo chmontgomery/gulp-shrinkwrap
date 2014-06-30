@@ -27,7 +27,7 @@ function fix(file) {
   hardVersionDependencies(json.dependencies);
   hardVersionDependencies(json.devDependencies);
 
-  file.contents = new Buffer(JSON.stringify(json));
+  file.contents = new Buffer(JSON.stringify(json, null, 2));
 }
 
 function replacer(key, val) {
@@ -51,7 +51,7 @@ function npmShrinkwrap(file, cb) {
 
     npm.commands.shrinkwrap('', function (err, pkinfo) {
       if (err) {
-        self.emit('error', new gutil.PluginError('gulp-shrinkwrap', 'Failed to run npm shrinkwrap'));
+        self.emit('error', new gutil.PluginError('gulp-shrinkwrap', err, {showStack: true}));
         return cb();
       }
 
@@ -60,8 +60,8 @@ function npmShrinkwrap(file, cb) {
       var shrinkwrapFileName = path.join(process.cwd(), 'npm-shrinkwrap.json');
       var shrinkwrapData = require(shrinkwrapFileName);
 
-      fs.writeFile(shrinkwrapFileName, JSON.stringify(shrinkwrapData, replacer, 2), function (err) {
-        if (err) {
+      fs.writeFile(shrinkwrapFileName, JSON.stringify(shrinkwrapData, replacer, 2), function (writeErr) {
+        if (writeErr) {
           self.emit('error', new gutil.PluginError('gulp-shrinkwrap', 'Failed to update npm-shrinkwrap.json'));
           return cb();
         }
