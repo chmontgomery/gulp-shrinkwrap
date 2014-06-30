@@ -1,4 +1,4 @@
-# [gulp](http://gulpjs.com/)-shrinkwrap
+# [gulp](http://gulpjs.com/)-shrinkwrap [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
 
 > Locks package.json dependencies to specific versions and runs npm shrinkwrap
 
@@ -21,3 +21,8 @@ gulp.task('shrinkwrap', function () {
     .pipe(gulp.dest('./'));
 });
 ```
+
+[npm-url]: https://npmjs.org/package/gulp-shrinkwrap
+[npm-image]: http://img.shields.io/npm/v/gulp-shrinkwrape.svg
+[travis-image]: https://travis-ci.org/chmontgomery/gulp-shrinkwrap.svg?branch=master
+[travis-url]: https://travis-ci.org/chmontgomery/gulp-shrinkwrap
