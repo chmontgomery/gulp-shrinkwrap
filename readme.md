@@ -70,6 +70,10 @@ into this
 
 and also generates a [`npm-shrinkwrap.json`](https://www.npmjs.org/doc/cli/npm-shrinkwrap.html) file
 
+## License
+
+[MIT](http://opensource.org/licenses/MIT) © [Chris Montgomery](http://www.chrismontgomery.info/)
+
 [npm-url]: https://npmjs.org/package/gulp-shrinkwrap
 [npm-image]: http://img.shields.io/npm/v/gulp-shrinkwrap.svg
 [travis-image]: https://travis-ci.org/chmontgomery/gulp-shrinkwrap.svg?branch=master
