@@ -23,6 +23,6 @@ gulp.task('shrinkwrap', function () {
 ```
 
 [npm-url]: https://npmjs.org/package/gulp-shrinkwrap
-[npm-image]: http://img.shields.io/npm/v/gulp-shrinkwrape.svg
+[npm-image]: http://img.shields.io/npm/v/gulp-shrinkwrap.svg
 [travis-image]: https://travis-ci.org/chmontgomery/gulp-shrinkwrap.svg?branch=master
 [travis-url]: https://travis-ci.org/chmontgomery/gulp-shrinkwrap
