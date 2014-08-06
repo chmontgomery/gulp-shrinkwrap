@@ -70,6 +70,29 @@ into this
 
 and also generates a [`npm-shrinkwrap.json`](https://www.npmjs.org/doc/cli/npm-shrinkwrap.html) file
 
+## Always keep your shrinkwrap up to date
+
+You'll want to update your `npm-shrinkwrap.json` every time you install a new dependency.
+An easy way to do this automatically is via a `pre-commit` [git hook](https://www.kernel.org/pub/software/scm/git/docs/githooks.html)
+
+```shell
+#!/bin/sh
+#
+# Run gulp shrinkwrap on every commit so that we always have the most recent
+# dependencies checked in.
+ 
+npm prune > /dev/null
+error=$(gulp shrinkwrap)
+if [[ $? -ne 0 ]] ; then
+  echo "$error"
+  exit 1
+fi
+ 
+# If modified adds file(s) and includes them in commit.
+git add package.json
+git add npm-shrinkwrap.json
+```
+
 ## License
 
 [MIT](http://opensource.org/licenses/MIT) © [Chris Montgomery](http://www.chrismontgomery.info/)
