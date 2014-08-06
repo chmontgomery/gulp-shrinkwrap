@@ -1,6 +1,6 @@
 {
   "name": "gulp-shrinkwrap",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Opinionated package.json dependency shrinkwrapper",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,6 @@
   },
   "author": {
     "name": "Chris Montgomery",
-    "email": "chr.montgomery@gmail.com",
     "url": "http://www.chrismontgomery.info/"
   },
   "license": "MIT",
