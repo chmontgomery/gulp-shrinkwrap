@@ -1,6 +1,6 @@
 {
   "name": "gulp-shrinkwrap",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Opinionated package.json dependency shrinkwrapper",
   "main": "index.js",
   "scripts": {
