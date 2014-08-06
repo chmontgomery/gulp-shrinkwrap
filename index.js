@@ -79,7 +79,6 @@ function npmShrinkwrap(file, cb) {
 module.exports = function () {
 
   function shrinkwrap(file, enc, cb) {
-    var self = this;
 
     if (file.isNull()) {
       this.push(file);
