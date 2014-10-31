@@ -23,14 +23,14 @@
     "url": "https://github.com/chmontgomery/gulp-shrinkwrap"
   },
   "dependencies": {
-    "gulp-util": "3.0.0",
-    "nopt": "3.0.1",
-    "npm": "1.4.23",
-    "npmconf": "1.1.5",
-    "through2": "0.5.1"
+    "gulp-util": "^3.0.1",
+    "nopt": "^3.0.1",
+    "npm": "^2.1.6",
+    "npmconf": "^2.1.1",
+    "through2": "^0.6.3"
   },
   "devDependencies": {
-    "gulp": "3.8.7",
-    "mocha": "1.21.3"
+    "gulp": "^3.8.9",
+    "mocha": "^2.0.1"
   }
 }
