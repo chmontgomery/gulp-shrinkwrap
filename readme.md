@@ -70,6 +70,20 @@ into this
 
 and also generates a [`npm-shrinkwrap.json`](https://www.npmjs.org/doc/cli/npm-shrinkwrap.html) file
 
+## Skip `package.json` modification
+This can be accomplished simply by removing the call to `gulp.dest`, which is responsible for writing the modified file:
+
+```js
+// gulpfile.js
+var gulp = require('gulp'),
+  shrinkwrap = require('gulp-shrinkwrap');
+
+gulp.task('shrinkwrap', function () {
+  return gulp.src('package.json')
+    .pipe(shrinkwrap());
+});
+```
+
 ## Always keep your shrinkwrap up to date
 
 You'll want to update your `npm-shrinkwrap.json` every time you install a new dependency.
