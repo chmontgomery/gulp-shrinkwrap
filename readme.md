@@ -19,7 +19,8 @@ var gulp = require('gulp'),
 
 gulp.task('shrinkwrap', function () {
   return gulp.src('package.json')
-    .pipe(shrinkwrap());
+    .pipe(shrinkwrap())     // runs `npm shrinkwrap`
+    .pipe(gulp.dest('./')); // writes newly modified `package.json`
 });
 ```
 
