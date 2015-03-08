@@ -10,27 +10,53 @@ npm install gulp-shrinkwrap --save-dev
 
 ## Usage
 
-Given
+See [the API documentation](docs/API.md) for more details.
+
+### shrinkwrap([options])
+
+Given a `gulpfile.js`
 
 ```js
-// gulpfile.js
 var gulp = require('gulp'),
   shrinkwrap = require('gulp-shrinkwrap');
 
 gulp.task('shrinkwrap', function () {
   return gulp.src('package.json')
-    .pipe(shrinkwrap())     // runs `npm shrinkwrap`
-    .pipe(gulp.dest('./')); // writes newly modified `package.json`
+    .pipe(shrinkwrap())           // just like running `npm shrinkwrap`
+    .pipe(gulp.dest('./'));       // writes newly created `npm-shrinkwrap.json` to the location of your choice
 });
 ```
 
-Running
+When running
 
 ```bash
 $ gulp shrinkwrap
 ```
 
-Turns a `package.json` like this
+Then a [`npm-shrinkwrap.json`](https://www.npmjs.org/doc/cli/npm-shrinkwrap.html) file will generated at the
+destination of your choice.
+
+#### Important Notes
+
+1. Without the call to `gulp.dest`, a `npm-shrinkwrap.json` file will not be created.
+2. By default, `npm shrinkwrap` will be executed at the path where the supplied `package.json` file resides. If you want it run in a different context you must supply the `prefix` option.
+
+### shrinkwrap.lock([options])
+
+Given a `gulpfile.js`
+
+```js
+var gulp = require('gulp'),
+  shrinkwrap = require('gulp-shrinkwrap');
+
+gulp.task('shrinkwrap', function () {
+  return gulp.src('package.json')
+    .pipe(shrinkwrap.lock())      // modifies dependencies and devDependencies in package.json to specific versions 
+    .pipe(gulp.dest('./'));       // writes newly modified `package.json`
+});
+```
+
+And a `package.json`
 
 ```json
 {
@@ -40,7 +66,7 @@ Turns a `package.json` like this
     "gulp-util": "^3.0.0",
     "nopt": "^3.0.1",
     "npmconf": "~1.1.5",
-    "through2": "^0.5.1"
+    "through2": "0.5.1"
   },
   "devDependencies": {
     "gulp": "^3.8.7",
@@ -49,7 +75,13 @@ Turns a `package.json` like this
 }
 ```
 
-into this
+When running
+
+```bash
+$ gulp shrinkwrap
+```
+
+Then the `package.json` file will be modified to be this
 
 ```json
 {
@@ -68,10 +100,7 @@ into this
 }
 ```
 
-and also generates a [`npm-shrinkwrap.json`](https://www.npmjs.org/doc/cli/npm-shrinkwrap.html) file
-
-## Skip `package.json` modification
-This can be accomplished simply by removing the call to `gulp.dest`, which is responsible for writing the modified file:
+### All together
 
 ```js
 // gulpfile.js
@@ -79,8 +108,11 @@ var gulp = require('gulp'),
   shrinkwrap = require('gulp-shrinkwrap');
 
 gulp.task('shrinkwrap', function () {
-  return gulp.src('package.json')
-    .pipe(shrinkwrap());
+  return gulp.src('./custom/package.json')
+    .pipe(shrinkwrap.lock({devDependencies: false}))  // locks dependencies only in `package.json` to specific versions 
+    .pipe(gulp.dest('./new-location'))                // writes newly modified `package.json`
+    .pipe(shrinkwrap())                               // just like running `npm shrinkwrap`
+    .pipe(gulp.dest('./my-custom-dest'));             // writes newly created `npm-shrinkwrap.json` to the location of your choice
 });
 ```
 

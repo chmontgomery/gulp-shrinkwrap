@@ -1,0 +1,7 @@
+{
+  "name": "package-deps-only",
+  "version": "0.0.1",
+  "dependencies": {
+    "package-json-validator": "^0.5.6"
+  }
+}
