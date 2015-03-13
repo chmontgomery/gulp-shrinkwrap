@@ -117,6 +117,11 @@ gulp.task('shrinkwrap', function () {
 });
 ```
 
+Note: if you try to just drop the above code into your project, the call will likely fail. This is because, if you use
+wildcards, those will be locked to a specific version but the actual versions installed under `node_modules` will
+likely be newer. This will cause a failure during `npm shrinkwrap`. To get around this, lock your `package.json` first,
+re-install all dependencies and then shrinkwrap.
+
 ## Always keep your shrinkwrap up to date
 
 You'll want to update your `npm-shrinkwrap.json` every time you install a new dependency.
