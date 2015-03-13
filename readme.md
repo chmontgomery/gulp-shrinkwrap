@@ -1,6 +1,7 @@
 # [gulp](http://gulpjs.com/)-shrinkwrap [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
 
-> Locks [`package.json`](https://www.npmjs.org/doc/files/package.json.html#dependencies) dependencies to specific versions and runs [`npm shrinkwrap`](https://www.npmjs.org/doc/cli/npm-shrinkwrap.html)
+> Run [`npm shrinkwrap`](https://www.npmjs.org/doc/cli/npm-shrinkwrap.html) from a gulp task against a given `package.json` file.
+> Also allow locking [`package.json`](https://www.npmjs.org/doc/files/package.json.html#dependencies) dependencies to specific versions.
 
 ## Install
 
@@ -12,7 +13,7 @@ npm install gulp-shrinkwrap --save-dev
 
 See [the API documentation](docs/API.md) for more details.
 
-### shrinkwrap([options])
+### shrinkwrap
 
 Given a `gulpfile.js`
 
@@ -22,8 +23,8 @@ var gulp = require('gulp'),
 
 gulp.task('shrinkwrap', function () {
   return gulp.src('package.json')
-    .pipe(shrinkwrap())           // just like running `npm shrinkwrap`
-    .pipe(gulp.dest('./'));       // writes newly created `npm-shrinkwrap.json` to the location of your choice
+    .pipe(shrinkwrap())      // just like running `npm shrinkwrap`
+    .pipe(gulp.dest('./'));  // writes newly created `npm-shrinkwrap.json` to the location of your choice
 });
 ```
 
@@ -41,7 +42,7 @@ destination of your choice.
 1. Without the call to `gulp.dest`, a `npm-shrinkwrap.json` file will not be created.
 2. By default, `npm shrinkwrap` will be executed at the path where the supplied `package.json` file resides. If you want it run in a different context you must supply the `prefix` option.
 
-### shrinkwrap.lock([options])
+### shrinkwrap.lock
 
 Given a `gulpfile.js`
 
@@ -51,8 +52,8 @@ var gulp = require('gulp'),
 
 gulp.task('shrinkwrap', function () {
   return gulp.src('package.json')
-    .pipe(shrinkwrap.lock())      // modifies dependencies and devDependencies in package.json to specific versions 
-    .pipe(gulp.dest('./'));       // writes newly modified `package.json`
+    .pipe(shrinkwrap.lock())  // modifies dependencies and devDependencies in package.json to specific versions 
+    .pipe(gulp.dest('./'));   // writes newly modified `package.json`
 });
 ```
 
