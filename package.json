@@ -1,7 +1,7 @@
 {
   "name": "gulp-shrinkwrap",
   "version": "2.0.0",
-  "description": "Opinionated package.json dependency shrinkwrapper",
+  "description": "Run npm shrinkwrap from a gulp task",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
