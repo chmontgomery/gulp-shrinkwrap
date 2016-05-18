@@ -26,6 +26,12 @@ gulp.task('shrinkwrap', function () {
     .pipe(shrinkwrap())      // just like running `npm shrinkwrap`
     .pipe(gulp.dest('./'));  // writes newly created `npm-shrinkwrap.json` to the location of your choice
 });
+
+gulp.task('shrinkwrap-dev', function () {
+  return gulp.src('package.json')
+    .pipe(shrinkwrap({dev: true}))  // just like running `npm shrinkwrap --dev`
+    .pipe(gulp.dest('./'));
+});
 ```
 
 When running
