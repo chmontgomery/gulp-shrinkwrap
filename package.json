@@ -1,6 +1,6 @@
 {
   "name": "gulp-shrinkwrap",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Run npm shrinkwrap from a gulp task",
   "main": "index.js",
   "scripts": {
@@ -23,15 +23,15 @@
     "url": "https://github.com/chmontgomery/gulp-shrinkwrap"
   },
   "dependencies": {
-    "bluebird": "2.9.14",
-    "graceful-fs": "3.0.6",
-    "gulp-util": "3.0.4",
-    "lodash": "3.1.0",
-    "npm": "2.7.0",
-    "through2": "0.6.3"
+    "bluebird": "3.4.6",
+    "graceful-fs": "4.1.10",
+    "gulp-util": "3.0.7",
+    "lodash": "4.17.2",
+    "npm": "4.0.2",
+    "through2": "2.0.1"
   },
   "devDependencies": {
-    "del": "^1.1.1",
+    "del": "^2.2.2",
     "gulp": "*",
     "mocha": "*"
   }
