@@ -45,7 +45,7 @@ describe('lock', function () {
             "graceful-fs": "3.0.3"
           },
           "devDependencies": {
-            "mocha": "1.20.1"
+            "mocha": "2.2.0"
           }
         });
 
@@ -73,7 +73,7 @@ describe('lock', function () {
             "graceful-fs": "3.0.3"
           },
           "devDependencies": {
-            "mocha": "~1.20.1"
+            "mocha": "~2.2.0"
           }
         });
 
@@ -101,7 +101,7 @@ describe('lock', function () {
             "graceful-fs": "^3.0.3"
           },
           "devDependencies": {
-            "mocha": "1.20.1"
+            "mocha": "2.2.0"
           }
         });
 
@@ -129,7 +129,7 @@ describe('lock', function () {
             "graceful-fs": "3.0.3"
           },
           "devDependencies": {
-            "mocha": "~1.20.1"
+            "mocha": "~2.2.0"
           }
         });
 
